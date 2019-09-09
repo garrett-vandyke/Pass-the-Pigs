@@ -72,6 +72,7 @@ def showGUI():
             text2.insert(tk.END, resultList[1], 'center')
             rollWidget.insert(tk.END, 'Roll ' + str(self.numRolls), 'center')
 
+            # find the correct punishment to display
             for key, value in punishmentDict.items():
                 if sorted(key) == sorted(resultList):
                     punishmentWidget.insert(tk.END, value, 'center')
