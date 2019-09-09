@@ -9,7 +9,8 @@ def showGUI():
 
     class GUI(tk.Tk):
 
-        def __init__(self, *args, **kwargs):
+        def __init__(self, *args, **kwargs):            
+        # initializer function runs every time, sets ish up
 
             tk.Tk.__init__(self, *args, **kwargs)
 
@@ -18,6 +19,7 @@ def showGUI():
             container.grid_rowconfigure(0, weight=1)
             container.grid_columnconfigure(0, weight=1)
 
+            # dictionary to hold frames
             self.frames = {}
 
             frame = GamePage(container, self)
@@ -47,7 +49,7 @@ def showGUI():
         
         def rolling(self):
             # dictionary of punishments
-            punishmentDict = {('Leaning Jowler', 'Leaning Jowler'):'Middle name of firstborn', ('Leaning Jowler','Snouter'):"Next pet's name", ('Leaning Jowler','Trotter'):'Tattoo', ('Leaning Jowler','Razorback'):'Lip tattoo', ('Leaning Jowler','Sider'):'Super Dare', ('Snouter','Snouter'):'Winner!',('Snouter','Trotter'):'Dye hair', ('Snouter','Razorback'):'Jump in pool', ('Snouter','Sider'):'Dare',('Trotter','Trotter'):'Spin the bottle',('Trotter','Razorback'):'Shot/Shotgun',('Trotter','Sider'):'Choose a chooser 5 sec.',('Razorback','Razorback'):'Drink a full (alone)',('Razorback','Sider'):'Notecard (veto finish)',('Sider','Sider'):'Drink every roll until new double sider'}
+            punishmentDict = {('Leaning Jowler', 'Leaning Jowler'):'Middle name of firstborn', ('Leaning Jowler','Snouter'):"Next pet's name", ('Leaning Jowler','Trotter'):'Tattoo', ('Leaning Jowler','Razorback'):'Lip tattoo', ('Leaning Jowler','Sider'):'Super dare', ('Snouter','Snouter'):'Winner!',('Snouter','Trotter'):'Dye hair', ('Snouter','Razorback'):'Jump in pool', ('Snouter','Sider'):'Dare',('Trotter','Trotter'):'Spin the bottle',('Trotter','Razorback'):'Shot/Shotgun',('Trotter','Sider'):'Choose a chooser 5 sec.',('Razorback','Razorback'):'Drink a full (alone)',('Razorback','Sider'):'Notecard (veto finish)',('Sider','Sider'):'Drink every roll until new double sider'}
             
             # get results
             resultList = ptp.passThePigs()
