@@ -2,3 +2,5 @@
 Dice Roller
 
 Main file is GUI.py
+
+Link to cards: https://quizlet.com/417879537/pass-the-pigs-flash-cards/
