@@ -19,19 +19,38 @@ class GUI(tk.Tk):
 
         # dictionary to hold frames
         self.frames = {}
+        for F in (WelcomePage, GamePage):
+            page_name = F.__name__
+            frame = F(parent=container, controller=self)
+            self.frames[page_name] = frame
 
-        frame = GamePage(container, self)
-        self.frames[GamePage] = frame
-        frame.grid(row=0, column=0, sticky="nsew")
+            # put all of the pages in the same location;
+            # the one on the top of the stacking order
+            # will be the one that is visible.
+            frame.grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame(GamePage)
+        self.show_frame('WelcomePage')
         self.title('Pass the Pigs')
-    
+
     def show_frame(self, cont):
 
         frame = self.frames[cont]
         frame.tkraise()
-    
+
+class WelcomePage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        welcomeMessage = tk.Label(self, text='Welcome to Pass the Pigs!', font=LARGE_FONT)
+        welcomeMessage.grid(row=0, columnspan=2, pady=10, padx=10)
+
+        detailMessage = tk.Label(self, text = 'A game created just for you by Matthew Devine, Garrett Van Dyke, and their brilliant friends.\nTuck your shirt in, and get ready to roll.', font='Times')
+        detailMessage.grid(row=1, columnspan=2, pady=10, padx=10)
+
+        enterButton = tk.Button(self, text='Play', command=lambda: controller.show_frame("GamePage"))
+        enterButton.config(height=2, width=15, activebackground='blue')
+        enterButton.grid(row=2, columnspan=2, pady=10)
+
 class GamePage(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -39,7 +58,7 @@ class GamePage(tk.Frame):
         label = tk.Label(self, text='Pass the Pigs', font=LARGE_FONT)
         label.grid(row=0, columnspan=2, pady=10, padx=10)
 
-        rollButton = tk.Button(self, text='Roll', command=self.rolling, bg='blue')
+        rollButton = tk.Button(self, text='Roll', command=self.rolling)
         rollButton.config(height=2, width=15, activebackground='blue')
         rollButton.grid(row=1, columnspan=2)
 
