@@ -1,6 +1,5 @@
 import tkinter as tk
 import PassThePigs as ptp
-import time
 from PIL import ImageTk, Image
 
 LARGE_FONT = ("Verdana", 24, 'bold')
@@ -8,7 +7,6 @@ LARGE_FONT = ("Verdana", 24, 'bold')
 class GUI(tk.Tk):
 
     def __init__(self, *args, **kwargs):            
-    # initializer function runs every time, sets ish up
 
         tk.Tk.__init__(self, *args, **kwargs)
 
