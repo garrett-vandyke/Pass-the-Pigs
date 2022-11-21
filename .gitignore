@@ -100,3 +100,6 @@ ENV/
 
 # IDE
 .vscode
+
+# macos crap
+.DS_Store
